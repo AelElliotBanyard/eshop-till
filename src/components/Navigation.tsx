@@ -1,4 +1,5 @@
 import NavigationItem from "./NavigationItem";
+import { AiOutlineShoppingCart, AiOutlineDown } from "react-icons/ai";
 
 const Navigation = () => {
     return (
@@ -7,8 +8,8 @@ const Navigation = () => {
                 <ul>
                     <li><NavigationItem title="Home" path="/" list={false} /></li>
                     <li>Pictures</li>
-                    <li>Portfolio</li>
-                    <li>Cart</li>
+                    <li><NavigationItem title="Portfolio" path="https://tillgrezet.myportfolio.com/" list={false} /></li>
+                    <li><NavigationItem title="<AiOutlineShoppingCart />" path="/cart" list={false} /></li>
                 </ul>
             </nav>
         </div>
