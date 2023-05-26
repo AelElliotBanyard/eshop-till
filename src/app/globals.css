@@ -34,4 +34,8 @@ body {
   .landingPage > .title {
     @apply text-4xl font-extrabold text-center;
   }
+
+  .navigation {
+    @apply absolute;
+  }
 }
