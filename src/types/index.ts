@@ -1,11 +1,11 @@
 export type NavigationItemProps = {
-    title: string,
-    path: string,
-    list: boolean,
-    subroutes?: Routes[]
-}
+  title: string | JSX.Element;
+  path: string;
+  list: boolean;
+  subroutes?: Routes[];
+};
 
 type Routes = {
-    title: string,
-    path: string
-}
+  title: string;
+  path: string;
+};
