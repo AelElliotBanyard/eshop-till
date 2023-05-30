@@ -38,4 +38,17 @@ body {
   .navigation {
     @apply absolute grid grid-cols-1 grid-rows-5;
   }
+
+  .navListTitle {
+    @apply flex items-center;
+  }
+
+  .navListItem.open {
+    @apply block;
+  }
+
+  .navListItem.closed {
+    @apply hidden;
+  }
 }
+

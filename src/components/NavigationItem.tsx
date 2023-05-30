@@ -3,6 +3,7 @@
 import { NavigationItemProps } from "@/types";
 import Link from "next/link";
 import { useState } from "react";
+import { AiOutlineDown } from "react-icons/ai";
 
 const NavigationItem = ({
   title,
@@ -13,10 +14,14 @@ const NavigationItem = ({
   if (list) {
     const [open, setOpen] = useState(false);
     return (
-      <div>
+      <div className={"navList " + (open ? "open" : "closed")} onClick={() => setOpen(!open)}>
+  
         {" "}
-        <p>{title}</p>
-        <div>
+        <div className="navListTitle">
+          <p>{title}</p>
+          <AiOutlineDown className="navListArrow"/>
+        </div>
+        <div className={"navListItem " + (open ? "open" : "closed")}>
           {subroutes?.map((subroute) => {
             return <Link href={subroute.path}>{subroute.title}</Link>;
           })}
