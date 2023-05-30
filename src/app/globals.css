@@ -29,6 +29,8 @@ body {
 @layer components {
   .landingPage {
     @apply w-screen h-screen bg-main bg-cover bg-center flex justify-center items-center;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
   }
 
   .landingPage > .title {
