@@ -19,7 +19,7 @@ const NavigationItem = ({
         {" "}
         <div className="navListTitle">
           <p>{title}</p>
-          <AiOutlineDown className="navListArrow"/>
+          <AiOutlineDown className={"navListArrow " + (open ? "open" : "closed")} />
         </div>
         <div className={"navListItem " + (open ? "open" : "closed")}>
           {subroutes?.map((subroute) => {

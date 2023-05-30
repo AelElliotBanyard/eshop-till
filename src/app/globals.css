@@ -35,8 +35,13 @@ body {
     @apply text-4xl font-extrabold text-center;
   }
 
-  .navigation {
-    @apply absolute grid grid-cols-1 grid-rows-5;
+  .navigation{
+    @apply absolute flex justify-center m-6;
+    width: calc(100% - 3rem);
+  }
+
+  .navigationItems {
+    @apply grid grid-cols-4 grid-rows-1 gap-4 justify-items-center items-center bg-black bg-opacity-75 p-3 rounded-md;
   }
 
   .navListTitle {
@@ -49,6 +54,10 @@ body {
 
   .navListItem.closed {
     @apply hidden;
+  }
+
+  .navListArrow.open {
+    @apply rotate-180;
   }
 }
 

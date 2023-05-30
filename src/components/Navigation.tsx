@@ -5,7 +5,7 @@ const Navigation = () => {
     return (
         <div className="navigation">
             <nav>
-                <ul>
+                <ul className="navigationItems">
                     <li><NavigationItem title="Home" path="/" list={false} /></li>
                     <li><NavigationItem title="Pictures" path="/pictures" list={false} /></li>
                     <li><NavigationItem title="About" path="/" list={true} subroutes={[{title: "About Me", path: "/aboutme"}, {title: "Portfolio", path: "https://tillgrezet.myportfolio.com/"}]} /></li>
