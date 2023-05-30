@@ -1,10 +1,11 @@
-const PictureComponent = ({src, alt, description}: any) => {
-    return (
-        <div>
-            <img src={src} alt={alt} />
-            <p>{description}</p>
-        </div>
-    );
+const PictureComponent = ({ src, alt, price, description, id }: any) => {
+  return (
+    <div key={id}>
+      <img src={src} alt={alt} />
+      <p>{price}</p>
+      <p>{description}</p>
+    </div>
+  );
 };
 
 export default PictureComponent;
