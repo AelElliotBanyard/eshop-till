@@ -30,8 +30,8 @@ const NavigationItem = ({
     );
   }
   return (
-    <div>
-      <Link href={path}>{title}</Link>
+    <div className="navItem">
+      <Link href={path} className="navTitle">{title}</Link>
     </div>
   );
 };
