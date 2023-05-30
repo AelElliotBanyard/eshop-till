@@ -1,6 +1,10 @@
-import Link from "next/link";
+"use client";
+import PictureComponent from "@/components/PictureComponent";
+import { usePathname } from "next/navigation";
+import React from "react";
 
-const Pictures = () => {
+const page = () => {
+  const router = usePathname();
   const images = [
     {
       src: "https://picsum.photos/300/200",
@@ -19,15 +23,13 @@ const Pictures = () => {
   ];
   return (
     <div>
-      {images.map((image) => {
-        return (
-          <Link href={`/pictures/${image.id}`}>
-            <img src={image.src} alt={image.alt} />
-          </Link>
-        );
-      })}
+      <PictureComponent
+        {...images.find(
+          (a) => (a.id = parseFloat(router.split("/")[2] as string))
+        )}
+      />
     </div>
   );
 };
 
-export default Pictures;
+export default page;

@@ -34,4 +34,17 @@ body {
   .landingPage > .title {
     @apply text-4xl font-extrabold text-center;
   }
+  .pictureComponent {
+    @apply flex flex-col items-center bg-gray-400 rounded-lg m-4 bg-opacity-50 p-4;
+  }
+  .pictureComponent > .pictureComponentImg {
+    @apply rounded-md m-4;
+    width: calc(100% - 2rem);
+  }
+  .pictureComponent > .pictureComponentPrice {
+    @apply text-2xl font-bold;
+  }
+  .pictureComponent > .pictureComponentDesc {
+    @apply text-2xl font-bold;
+  }
 }
