@@ -8,7 +8,7 @@ const Navigation = () => {
                 <ul>
                     <li><NavigationItem title="Home" path="/" list={false} /></li>
                     <li><NavigationItem title="Pictures" path="/pictures" list={false} /></li>
-                    <li><NavigationItem title="Portfolio" path="https://tillgrezet.myportfolio.com/" list={false} /></li>
+                    <li><NavigationItem title="About" path="/" list={true} subroutes={[{title: "About Me", path: "/aboutme"}, {title: "Portfolio", path: "https://tillgrezet.myportfolio.com/"}]} /></li>
                     <li><NavigationItem title={<AiOutlineShoppingCart />} path="/cart" list={false} /></li>
                 </ul>
             </nav>
