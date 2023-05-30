@@ -3,7 +3,7 @@
 import { NavigationItemProps } from "@/types";
 import Link from "next/link";
 import { useState } from "react";
-import { AiOutlineDown } from "react-icons/ai";
+import { AiFillCaretDown } from "react-icons/ai";
 
 const NavigationItem = ({
   title,
@@ -19,7 +19,7 @@ const NavigationItem = ({
         {" "}
         <div className="navListTitle">
           <p>{title}</p>
-          <AiOutlineDown className={"navListArrow " + (open ? "open" : "closed")} />
+          <AiFillCaretDown className={"navListArrow " + (open ? "open" : "closed")} />
         </div>
         <div className={"navListItem " + (open ? "open" : "closed")}>
           {subroutes?.map((subroute) => {

@@ -41,15 +41,36 @@ body {
   }
 
   .navigationItems {
-    @apply grid grid-cols-4 grid-rows-1 gap-4 justify-items-center items-center bg-black bg-opacity-75 p-3 rounded-md;
+    @apply grid grid-cols-4 grid-rows-1 gap-2 justify-items-center items-center bg-black bg-opacity-75 p-3;
+  }
+
+  .navigationItem {
+    @apply rounded;
   }
 
   .navListTitle {
-    @apply flex items-center gap-2 relative;
+    @apply flex items-center gap-2 ;
+  }
+
+  .navList {
+    @apply relative rounded;
+  }
+
+  .navList.closed {
+    @apply rounded;
+  }
+
+  .navList.open {
+    @apply rounded-b-none rounded-t;
   }
 
   .navListItem.open {
-    @apply flex flex-col absolute;
+    @apply flex flex-col absolute w-full -left-1 mt-1 text-sm;
+  }
+
+  .navListItem > a {
+    @apply p-1 w-full bg-white bg-opacity-20;
+    width: calc(100% + 0.5rem);
   }
 
   .navListItem.closed {
@@ -65,7 +86,7 @@ body {
   }
 
   .navigationItems > li {
-    @apply bg-white bg-opacity-20 p-1 w-full h-full text-center rounded;
+    @apply bg-white bg-opacity-20 p-1 w-full h-full text-center;
   }
 
   .navTitle {
