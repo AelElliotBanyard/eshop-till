@@ -106,4 +106,14 @@ body {
   .navItem {
     @apply h-full bg-white bg-opacity-20 p-1 rounded;
   }
+
+  .navigationItem.active > .navItem,
+  .navigationItem.active > .navList {
+    @apply bg-white bg-opacity-30;
+  }
+
+  .navigationItem.active > .navItem > .navTitle,
+  .navigationItem.active > .navList > .navListTitle {
+    @apply text-[#27DADE];
+  }
 }
