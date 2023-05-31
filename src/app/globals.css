@@ -41,7 +41,7 @@ body {
   }
 
   .navigationItems {
-    @apply grid grid-cols-4 grid-rows-1 gap-2 justify-items-center items-center bg-black bg-opacity-75 p-3;
+    @apply grid grid-cols-4 grid-rows-1 gap-2 justify-items-center items-center bg-black bg-opacity-75 p-3 rounded;
   }
 
   .navigationItem {
