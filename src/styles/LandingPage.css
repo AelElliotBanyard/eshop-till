@@ -1,0 +1,9 @@
+@layer components {
+  .landingPage {
+    @apply w-screen h-screen bg-main bg-cover bg-center flex justify-center items-center;
+  }
+
+  .landingPage > .title {
+    @apply text-4xl font-extrabold text-center text-white;
+  }
+}
