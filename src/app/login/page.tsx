@@ -14,6 +14,7 @@ const Login = () => {
                     <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}></Input>
                     <Input label="Passwort" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></Input>
                 </div>
+                <button className="loginButton" type="submit">log in</button>
             </div>
         </div>
     );

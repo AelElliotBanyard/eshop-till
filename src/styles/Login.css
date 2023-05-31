@@ -14,4 +14,8 @@
     .loginContainerInputs {
         @apply flex flex-col gap-5;
     }
+
+    .loginButton {
+        @apply border border-white py-1 px-3 rounded;
+    }
 }
