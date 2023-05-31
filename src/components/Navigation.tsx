@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 
 const Navigation = () => {
   const current = usePathname().split("/")[1];
-  console.log(current);
   return (
     <div className="navigation">
       <nav>
@@ -20,13 +19,13 @@ const Navigation = () => {
           >
             <NavigationItem title="Pictures" path="/pictures" list={false} />
           </li>
-          <li className={"navigationItem " + (current === "aboutMe" ? "active" : "")}>
+          <li className={"navigationItem " + (current === "about" ? "active" : "")}>
             <NavigationItem
               title="About"
               path="/"
               list={true}
               subroutes={[
-                { title: "About Me", path: "/aboutMe" },
+                { title: "About Me", path: "/about" },
                 {
                   title: "Portfolio",
                   path: "https://tillgrezet.myportfolio.com/",
