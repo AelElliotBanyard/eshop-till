@@ -8,14 +8,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -32,11 +24,11 @@ body {
   }
 
   .landingPage > .title {
-    @apply text-4xl font-extrabold text-center;
+    @apply text-4xl font-extrabold text-center text-white;
   }
 
   .navigation {
-    @apply absolute flex justify-center m-4;
+    @apply absolute flex justify-center m-4 text-white;
     width: calc(100% - 2rem);
   }
 
