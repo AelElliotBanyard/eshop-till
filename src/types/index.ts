@@ -9,3 +9,12 @@ type Routes = {
   title: string;
   path: string;
 };
+
+export interface Picture {
+  id: string;
+  src: string;
+  alt: string;
+  price: number;
+  description: string;
+  category: string;
+}
