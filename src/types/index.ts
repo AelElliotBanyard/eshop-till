@@ -9,3 +9,10 @@ type Routes = {
   title: string;
   path: string;
 };
+
+export type InputProps = {
+  label: string;
+  type: "email" | "text" | "password" | "date" | string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+}

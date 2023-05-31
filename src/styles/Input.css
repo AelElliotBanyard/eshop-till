@@ -1,0 +1,11 @@
+@layer components {
+    .fullInput {
+        @apply flex flex-col;
+    }
+
+    .input {
+        @apply border border-white rounded bg-transparent;
+    }
+
+ 
+}
