@@ -108,4 +108,12 @@ body {
   .navigationItem.active > .navList > .navListTitle {
     @apply text-[#27DADE];
   }
+
+  .navigationItemGroup {
+    @apply w-full h-full;
+  }
+
+  .navigationItemGroup > .container {
+    @apply w-full h-full flex flex-row justify-between items-center gap-2;
+  }
 }
