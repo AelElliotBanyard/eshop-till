@@ -7,5 +7,7 @@
         @apply border border-white rounded bg-transparent;
     }
 
- 
+    .input:focus-visible {
+        @apply border border-[#27DADE] outline-none;
+    }
 }
