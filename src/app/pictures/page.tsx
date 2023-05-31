@@ -18,7 +18,7 @@ const Pictures = () => {
     },
   ];
   return (
-    <div>
+    <div className="pictures">
       {images.map((image) => {
         return (
           <Link href={`/pictures/${image.id}`}>

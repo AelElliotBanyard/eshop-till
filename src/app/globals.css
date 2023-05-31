@@ -108,6 +108,19 @@ body {
   .navigationItem.active > .navList > .navListTitle {
     @apply text-[#27DADE];
   }
+
+  .pictures {
+    @apply pt-24 h-screen flex flex-col gap-2 items-center;
+  }
+
+  .pictures > a {
+    @apply w-4/5;
+  }
+
+  .pictures > a > img {
+    @apply w-full;
+  }
+
   .pictureComponent {
     @apply flex flex-col items-center bg-gray-400 rounded-lg m-4 bg-opacity-50 p-4;
   }
@@ -120,5 +133,9 @@ body {
   }
   .pictureComponent > .pictureComponentDesc {
     @apply text-2xl font-bold;
+  }
+
+  .product {
+    @apply pt-24 h-screen flex flex-col gap-2 items-center;
   }
 }

@@ -22,7 +22,7 @@ const page = () => {
     },
   ];
   return (
-    <div>
+    <div className="product">
       <PictureComponent
         {...images.find(
           (a) => (a.id = parseFloat(router.split("/")[2] as string))
