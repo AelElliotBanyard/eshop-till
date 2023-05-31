@@ -1,6 +1,6 @@
 "use client";
 import NavigationItem from "./NavigationItem";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { usePathname } from "next/navigation";
 
 const Navigation = () => {
@@ -19,7 +19,11 @@ const Navigation = () => {
           >
             <NavigationItem title="Pictures" path="/pictures" list={false} />
           </li>
-          <li className={"navigationItem " + (current === "about" ? "active" : "")}>
+          <li
+            className={
+              "navigationItem " + (current === "about" ? "active" : "")
+            }
+          >
             <NavigationItem
               title="About"
               path="/"
@@ -33,12 +37,33 @@ const Navigation = () => {
               ]}
             />
           </li>
-          <li className={"navigationItem " + (current === "cart" ? "active" : "")}>
-            <NavigationItem
-              title={<AiOutlineShoppingCart className="cartIcon" size={20} />}
-              path="/cart"
-              list={false}
-            />
+          <li className="navigationItemGroup">
+            <ul className="container">
+              <li
+                className={
+                  "navigationItem " + (current === "cart" ? "active" : "")
+                }
+              >
+                <NavigationItem
+                  title={
+                    <AiOutlineShoppingCart className="cartIcon" size={20} />
+                  }
+                  path="/cart"
+                  list={false}
+                />
+              </li>
+              <li
+                className={
+                  "navigationItem " + (current === "login" ? "active" : "")
+                }
+              >
+                <NavigationItem
+                  title={<AiOutlineUser className="userIcon" size={20} />}
+                  path="/login"
+                  list={false}
+                />
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
