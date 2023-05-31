@@ -1,28 +1,20 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Pictures = () => {
-  const images = [
-    {
-      src: "https://picsum.photos/300/200",
-      alt: "random image 1",
-      price: 100,
-      description: "random description 1",
-      id: 1,
-    },
-    {
-      src: "https://picsum.photos/600/400",
-      alt: "random image 2",
-      price: 1010,
-      description: "random description 2",
-      id: 2,
-    },
-  ];
+  const [pictures, setPictures] = useState([]);
+  useEffect(() => {
+    fetch("https://till.banyard.tech/api/collections/pictures/records")
+      .then((response) => response.json())
+      .then((data) => setPictures(data.items));
+  }, []);
   return (
     <div className="pictures">
-      {images.map((image) => {
+      {pictures.map((picture: any) => {
         return (
-          <Link href={`/pictures/${image.id}`}>
-            <img src={image.src} alt={image.alt} />
+          <Link href={`/pictures/${picture.id}`}>
+            <img src={picture.src} alt={picture.alt} />
           </Link>
         );
       })}
