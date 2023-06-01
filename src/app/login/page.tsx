@@ -15,6 +15,8 @@ const Login = () => {
                     <Input label="Passwort" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></Input>
                 </div>
                 <button className="loginButton" type="submit">log in</button>
+                <Link to="/register">register</Link>
+                <Link to="/resetpwd">Forgot password?</Link>
             </div>
         </div>
     );
