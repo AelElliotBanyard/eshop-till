@@ -44,8 +44,8 @@ const Register = () => {
                     <Input label="Phonenumber" type="text" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                     <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     <Input label="Confirm password" type="password" value={confPassword} onChange={(e) => setConfPassword(e.target.value)}/>
-                    <button className="loginButton" type="submit">Register</button>
                 </div>
+                <button className="loginButton" type="submit">Register</button>
             </div>
         </div>
     );
