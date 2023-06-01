@@ -3,17 +3,19 @@ import React from 'react';
 import { useState } from 'react';
 import Input from '../../components/Input'
 import Link from 'next/link'
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
     return (
         <div className="loginPage">
-            <div className="loginContainer">
+            <div className="loginContainer">   
+                <button className="backButton"><AiOutlineArrowLeft/></button>           
                 <h1 className="loginTitle">Login</h1>
                 <div className="loginContainerInputs">
-                    <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}></Input>
-                    <Input label="Passwort" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></Input>
+                    <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <Input label="Passwort" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <button className="loginButton" type="submit">log in</button>
                 <div className="linkContainer">

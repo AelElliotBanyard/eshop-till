@@ -1,6 +1,6 @@
 @layer components {
     .loginPage {
-        @apply pt-24 w-screen h-screen bg-main bg-cover flex justify-center items-start;
+        @apply pt-24 w-screen min-h-screen bg-main bg-cover bg-fixed flex justify-center items-start;
     }
 
     .loginContainer {
@@ -33,5 +33,9 @@
     
     .link {
         @apply text-blue-400;
+    }
+
+    .backButton {
+        @apply absolute top-5 left-5;
     }
 }

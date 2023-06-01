@@ -12,7 +12,7 @@ type Routes = {
 
 export type InputProps = {
   label: string;
-  type: "email" | "text" | "password" | "date" | string;
+  type: "email" | "text" | "password" | string;
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
