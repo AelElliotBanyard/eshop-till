@@ -5,7 +5,7 @@
   }
 
   .navigationItems {
-    @apply grid grid-cols-4 grid-rows-1 gap-2 justify-items-center items-center bg-black bg-opacity-75 p-3 rounded;
+    @apply grid grid-cols-4 grid-rows-1 gap-2 justify-items-center items-center bg-black bg-opacity-75 p-3 rounded backdrop-blur;
   }
 
   .navigationItem {
@@ -33,7 +33,7 @@
   }
 
   .navListItem {
-    @apply flex flex-col absolute w-full top-full left-0 text-sm scale-y-0 origin-top transition-transform duration-300;
+    @apply flex flex-col absolute w-full top-full left-0 text-sm scale-y-0 origin-top transition-transform duration-300 bg-white bg-opacity-20 backdrop-blur-md;
   }
 
   .navListItem > a:last-child {
@@ -45,7 +45,7 @@
   }
 
   .navListItem > a {
-    @apply p-1 w-full bg-white bg-opacity-20 border-t border-white border-opacity-50;
+    @apply p-1 w-full border-t border-white border-opacity-50;
   }
 
   .navListItem.closed {
