@@ -26,8 +26,8 @@ const Register = () => {
     place: false,
     phone: false,
     password: false,
-    passwordConfirm: false
-  })
+    passwordConfirm: false,
+  });
 
   const register = async () => {
     const pb = new PocketBase("https://till.banyard.tech");
@@ -44,32 +44,120 @@ const Register = () => {
       role: "user",
     };
 
-    if (firstname === "") {
-        setErrors({...errors, firstname: true})
-    }else if (name === "") {
-        setErrors({...errors, name: true})
-    }else if (email === "") {
-        setErrors({...errors, email: true})
-    }else if (address === "") {
-        setErrors({...errors, address: true})
-    }else if (plz === "") {
-        setErrors({...errors, plz: true})
-    }else if (place === "") {
-        setErrors({...errors, place: true})
-    }else if (phone === "") {
-        setErrors({...errors, phone: true})
-    }else if (password === "") {
-        setErrors({...errors, password: true})
-    }else if (passwordConfirm === "") {
-        setErrors({...errors, passwordConfirm: true})
+    setErrors({
+      firstname: false,
+      name: false,
+      email: false,
+      address: false,
+      plz: false,
+      place: false,
+      phone: false,
+      password: false,
+      passwordConfirm: false,
+    });
+
+    if (firstname.length == 0) {
+      let temp = errors;
+      temp.firstname = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.firstname = false;
+      setErrors(temp);
+    }
+    if (name.length == 0) {
+      let temp = errors;
+      temp.name = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.name = false;
+      setErrors(temp);
+    }
+    if (email.length == 0) {
+      let temp = errors;
+      temp.email = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.email = false;
+      setErrors(temp);
+    }
+    if (address.length == 0) {
+      let temp = errors;
+      temp.address = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.address = false;
+      setErrors(temp);
+    }
+    if (plz.length == 0) {
+      let temp = errors;
+      temp.plz = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.plz = false;
+      setErrors(temp);
+    }
+    if (place.length == 0) {
+      let temp = errors;
+      temp.place = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.place = false;
+      setErrors(temp);
+    }
+    if (phone.length == 0) {
+      let temp = errors;
+      temp.phone = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.phone = false;
+      setErrors(temp);
+    }
+    if (password.length == 0) {
+      let temp = errors;
+      temp.password = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.password = false;
+      setErrors(temp);
+    }
+    if (passwordConfirm.length == 0) {
+      let temp = errors;
+      temp.passwordConfirm = true;
+      setErrors(temp);
+    } else {
+      let temp = errors;
+      temp.passwordConfirm = false;
+      setErrors(temp);
     }
 
-    try {
-      const record = await pb.collection("users").create(data);
-      router.replace("/register/success");
-    } catch (error) {
-      console.log(error);
-      router.replace("/register/error");
+    setErrors(errors)
+
+    if (
+      firstname != "" &&
+      name != "" &&
+      email != "" &&
+      address != "" &&
+      plz != "" &&
+      place != "" &&
+      phone != "" &&
+      password != "" &&
+      passwordConfirm != ""
+    ) {
+      try {
+        const record = await pb.collection("users").create(data);
+        router.replace("/register/success");
+      } catch (error) {
+        console.log(error);
+        router.replace("/register/error");
+      }
     }
   };
   return (
@@ -92,7 +180,7 @@ const Register = () => {
             label="Lastname"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}   
+            onChange={(e) => setName(e.target.value)}
             error={errors.name}
             errorMessage="Fill out this field"
           />
@@ -102,7 +190,15 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             error={errors.email}
-            errorMessage="Fill out this field"
+            errorMessage={
+              email === ""
+                ? "Fill out this field"
+                : email.match(
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+                  )
+                ? "Please enter valid email"
+                : ""
+            }
           />
           <Input
             label="Address"

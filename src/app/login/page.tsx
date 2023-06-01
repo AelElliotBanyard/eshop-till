@@ -3,10 +3,37 @@ import React from "react";
 import { useState } from "react";
 import Input from "../../components/Input";
 import Link from "next/link";
+import PocketBase from "pocketbase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [errors, setErrors] = useState({
+    email: false,
+    password: false,
+  })
+
+  const login = async () => {
+    const pb = new PocketBase("https://till.banyard.tech");
+    if (email === "") {
+        setErrors({...errors, email: true})
+    }else if (password === "") {
+        setErrors({...errors, password: true})
+    }else {
+        try {
+            const authData = await pb.collection('users').authWithPassword(
+                email,
+                password
+            );
+        }catch(error) {
+            console.log(error)
+            setEmail("")
+            setPassword("")
+        }
+    }
+  }
+        
   return (
     <div className="loginPage">
       <div className="loginContainer">
@@ -17,15 +44,19 @@ const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={errors.email}
+            errorMessage="Fill out this field"
           />
           <Input
             label="Passwort"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={errors.password}
+            errorMessage="Fill out this field"
           />
         </div>
-        <button className="loginButton" type="submit">
+        <button className="loginButton" type="submit" onClick={login}>
           Log in
         </button>
         <div className="linkContainer">
