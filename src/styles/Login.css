@@ -65,4 +65,5 @@
   .errorTitle {
     @apply font-bold text-white text-2xl mb-4 text-center;
   }
+
 }

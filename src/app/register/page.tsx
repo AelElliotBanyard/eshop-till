@@ -14,8 +14,20 @@ const Register = () => {
   const [place, setPlace] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const router = useRouter();
+
+  const [errors, setErrors] = useState({
+    firstname: false,
+    name: false,
+    email: false,
+    address: false,
+    plz: false,
+    place: false,
+    phone: false,
+    password: false,
+    passwordConfirm: false
+  })
 
   const register = async () => {
     const pb = new PocketBase("https://till.banyard.tech");
@@ -28,9 +40,30 @@ const Register = () => {
       place: place,
       phone: phone,
       password: password,
-      passwordConfirm: confPassword,
+      passwordConfirm: passwordConfirm,
       role: "user",
     };
+
+    if (firstname === "") {
+        setErrors({...errors, firstname: true})
+    }else if (name === "") {
+        setErrors({...errors, name: true})
+    }else if (email === "") {
+        setErrors({...errors, email: true})
+    }else if (address === "") {
+        setErrors({...errors, address: true})
+    }else if (plz === "") {
+        setErrors({...errors, plz: true})
+    }else if (place === "") {
+        setErrors({...errors, place: true})
+    }else if (phone === "") {
+        setErrors({...errors, phone: true})
+    }else if (password === "") {
+        setErrors({...errors, password: true})
+    }else if (passwordConfirm === "") {
+        setErrors({...errors, passwordConfirm: true})
+    }
+
     try {
       const record = await pb.collection("users").create(data);
       router.replace("/register/success");
@@ -52,24 +85,32 @@ const Register = () => {
             type="text"
             value={firstname}
             onChange={(e) => setFirstname(e.target.value)}
+            error={errors.firstname}
+            errorMessage="Fill out this field"
           />
           <Input
             label="Lastname"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}   
+            error={errors.name}
+            errorMessage="Fill out this field"
           />
           <Input
             label="Email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={errors.email}
+            errorMessage="Fill out this field"
           />
           <Input
             label="Address"
             type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
+            error={errors.address}
+            errorMessage="Fill out this field"
           />
           <div className="plz">
             <Input
@@ -77,6 +118,8 @@ const Register = () => {
               type="text"
               value={plz}
               onChange={(e) => setPlz(e.target.value)}
+              error={errors.plz}
+              errorMessage="Fill out this field"
             />
           </div>
           <Input
@@ -84,24 +127,32 @@ const Register = () => {
             type="text"
             value={place}
             onChange={(e) => setPlace(e.target.value)}
+            error={errors.place}
+            errorMessage="Fill out this field"
           />
           <Input
             label="Phonenumber"
             type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            error={errors.phone}
+            errorMessage="Fill out this field"
           />
           <Input
             label="Password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={errors.password}
+            errorMessage="Fill out this field"
           />
           <Input
             label="Confirm password"
             type="password"
-            value={confPassword}
-            onChange={(e) => setConfPassword(e.target.value)}
+            value={passwordConfirm}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+            error={errors.passwordConfirm}
+            errorMessage="Fill out this field"
           />
         </div>
         <button className="loginButton" type="submit" onClick={register}>

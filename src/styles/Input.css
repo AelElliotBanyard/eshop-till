@@ -7,7 +7,19 @@
         @apply border border-white rounded bg-transparent pl-1.5;
     }
 
+    .input.error {
+        @apply border-red-600;
+    }
+
     .input:focus-visible {
         @apply border border-[#27DADE] outline-none;
+    }
+
+    .fullInput > label {
+        @apply flex gap-4;
+    }
+
+    .fullInput > label > .error {
+        @apply text-red-500 font-bold;
     }
 }

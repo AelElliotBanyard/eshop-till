@@ -15,4 +15,6 @@ export type InputProps = {
   type: "email" | "text" | "password" | string;
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
+  error?: boolean;
+  errorMessage?: string;
 }
