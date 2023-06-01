@@ -10,14 +10,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
     return (
         <div className="loginPage">
-            <div className="loginContainer">   
-                <button className="backButton"><AiOutlineArrowLeft/></button>           
+            <div className="loginContainer">             
                 <h1 className="loginTitle">Login</h1>
                 <div className="loginContainerInputs">
                     <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <Input label="Passwort" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
-                <button className="loginButton" type="submit">log in</button>
+                <button className="loginButton" type="submit">Log in</button>
                 <div className="linkContainer">
                     <div className="fullLink">
                         <p>No account yet?</p>

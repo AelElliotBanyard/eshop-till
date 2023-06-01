@@ -7,8 +7,15 @@
         @apply flex flex-col justify-center items-center w-4/5 bg-black bg-opacity-50 rounded text-white py-5 text-xl backdrop-blur-md gap-10;
     }
 
+    .loginContainerRegistration {
+        @apply flex flex-col justify-center items-center w-4/5 bg-black bg-opacity-50 rounded text-white py-5 text-xl backdrop-blur-md gap-10 mb-10;
+    }
+
     .loginTitle {
         @apply font-bold text-5xl;
+    }
+    .loginTitleRegistration{
+        @apply font-bold text-5xl mt-10;
     }
 
     .loginContainerInputs {

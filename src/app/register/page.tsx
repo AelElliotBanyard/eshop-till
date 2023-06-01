@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Input from '../../components/Input'
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useRouter } from 'next/navigation'
 
 const Register = () => {
     const [firstname, setFirstname] = useState("");
@@ -13,6 +14,7 @@ const Register = () => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [confPassword, setConfPassword] = useState("");
+    const router = useRouter()
 
     const register = () => {
         const data = {
@@ -29,9 +31,9 @@ const Register = () => {
     }
     return (
         <div className="loginPage">
-            <div className="loginContainer">
-                <button className="backButton"><AiOutlineArrowLeft/></button>
-                <h1 className="loginTitle">Registration</h1>
+            <div className="loginContainerRegistration">
+                <button className="backButton" onClick={() => router.back()}><AiOutlineArrowLeft/></button>
+                <h1 className="loginTitleRegistration">Registration</h1>
                 <div className="loginContainerInputs">
                     <Input label="Firstname" type="text" value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
                     <Input label="Lastname" type="text" value={name} onChange={(e) => setName(e.target.value)}/>
@@ -42,6 +44,7 @@ const Register = () => {
                     <Input label="Phonenumber" type="text" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                     <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     <Input label="Confirm password" type="password" value={confPassword} onChange={(e) => setConfPassword(e.target.value)}/>
+                    <button className="loginButton" type="submit">Register</button>
                 </div>
             </div>
         </div>
