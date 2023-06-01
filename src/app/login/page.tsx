@@ -2,6 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Input from '../../components/Input'
+import Link from 'next/link'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,8 +16,16 @@ const Login = () => {
                     <Input label="Passwort" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></Input>
                 </div>
                 <button className="loginButton" type="submit">log in</button>
-                <Link to="/register">register</Link>
-                <Link to="/resetpwd">Forgot password?</Link>
+                <div className="linkContainer">
+                    <div className="fullLink">
+                        <p>No account yet?</p>
+                        <Link className="link" href="/register">Register</Link>
+                    </div>
+                    <div className="fullLink">
+                        <p>Forget your password?</p>
+                        <Link className="link" href="/forgotPWD">Reset</Link>
+                    </div>
+                </div>
             </div>
         </div>
     );
