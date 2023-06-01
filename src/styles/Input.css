@@ -4,7 +4,7 @@
     }
 
     .input {
-        @apply border border-white rounded bg-transparent;
+        @apply border border-white rounded bg-transparent pl-1.5;
     }
 
     .input:focus-visible {
