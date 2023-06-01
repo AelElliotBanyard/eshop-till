@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export type NavigationItemProps = {
   title: string | JSX.Element;
   path: string;
@@ -16,5 +18,16 @@ export interface Picture {
   alt: string;
   price: number;
   description: string;
-  category: string;
+  category: string[];
+}
+
+export type CustomSelectProps = {
+  label: string;
+  options: CustomOption[];
+  onChange: (e: string) => void;
+};
+
+export interface CustomOption {
+  value: string;
+  label: string;
 }
