@@ -17,17 +17,15 @@ const Register = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const router = useRouter();
 
-  const [errors, setErrors] = useState({
-    firstname: false,
-    name: false,
-    email: false,
-    address: false,
-    plz: false,
-    place: false,
-    phone: false,
-    password: false,
-    passwordConfirm: false,
-  });
+  const [firstnameError, setFirstnameError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [addressError, setAddressError] = useState(false);
+  const [plzError, setPlzError] = useState(false);
+  const [placeError, setPlaceError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [passwordConfirmError, setPasswordConfirmError] = useState(false);
 
   const register = async () => {
     const pb = new PocketBase("https://till.banyard.tech");
@@ -44,101 +42,66 @@ const Register = () => {
       role: "user",
     };
 
-    setErrors({
-      firstname: false,
-      name: false,
-      email: false,
-      address: false,
-      plz: false,
-      place: false,
-      phone: false,
-      password: false,
-      passwordConfirm: false,
-    });
+    setFirstnameError(false);
+    setNameError(false);
+    setEmailError(false);
+    setAddressError(false);
+    setPlzError(false);
+    setPlaceError(false);
+    setPhoneError(false);
+    setPasswordError(false);
+    setPasswordConfirmError(false);
 
     if (firstname.length == 0) {
-      let temp = errors;
-      temp.firstname = true;
-      setErrors(temp);
+      setFirstnameError(true);
     } else {
-      let temp = errors;
-      temp.firstname = false;
-      setErrors(temp);
+      setFirstnameError(false);
     }
     if (name.length == 0) {
-      let temp = errors;
-      temp.name = true;
-      setErrors(temp);
+      setNameError(true);
     } else {
-      let temp = errors;
-      temp.name = false;
-      setErrors(temp);
+      setNameError(false);
     }
-    if (email.length == 0) {
-      let temp = errors;
-      temp.email = true;
-      setErrors(temp);
+    if (
+      email.length == 0 ||
+      !email.match(
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+      )
+    ) {
+      setEmailError(true);
     } else {
-      let temp = errors;
-      temp.email = false;
-      setErrors(temp);
+      setEmailError(false);
     }
     if (address.length == 0) {
-      let temp = errors;
-      temp.address = true;
-      setErrors(temp);
+      setAddressError(true);
     } else {
-      let temp = errors;
-      temp.address = false;
-      setErrors(temp);
+      setAddressError(false);
     }
     if (plz.length == 0) {
-      let temp = errors;
-      temp.plz = true;
-      setErrors(temp);
+      setPlzError(true);
     } else {
-      let temp = errors;
-      temp.plz = false;
-      setErrors(temp);
+      setPlzError(false);
     }
     if (place.length == 0) {
-      let temp = errors;
-      temp.place = true;
-      setErrors(temp);
+      setPlaceError(true);
     } else {
-      let temp = errors;
-      temp.place = false;
-      setErrors(temp);
+      setPlaceError(false);
     }
     if (phone.length == 0) {
-      let temp = errors;
-      temp.phone = true;
-      setErrors(temp);
+      setPhoneError(true);
     } else {
-      let temp = errors;
-      temp.phone = false;
-      setErrors(temp);
+      setPhoneError(false);
     }
     if (password.length == 0) {
-      let temp = errors;
-      temp.password = true;
-      setErrors(temp);
+      setPasswordError(true);
     } else {
-      let temp = errors;
-      temp.password = false;
-      setErrors(temp);
+      setPasswordError(false);
     }
     if (passwordConfirm.length == 0) {
-      let temp = errors;
-      temp.passwordConfirm = true;
-      setErrors(temp);
+      setPasswordConfirmError(true);
     } else {
-      let temp = errors;
-      temp.passwordConfirm = false;
-      setErrors(temp);
+      setPasswordConfirmError(false);
     }
-
-    setErrors(errors)
 
     if (
       firstname != "" &&
@@ -173,7 +136,7 @@ const Register = () => {
             type="text"
             value={firstname}
             onChange={(e) => setFirstname(e.target.value)}
-            error={errors.firstname}
+            error={firstnameError}
             errorMessage="Fill out this field"
           />
           <Input
@@ -181,7 +144,7 @@ const Register = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            error={errors.name}
+            error={nameError}
             errorMessage="Fill out this field"
           />
           <Input
@@ -189,11 +152,11 @@ const Register = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            error={errors.email}
+            error={emailError}
             errorMessage={
               email === ""
                 ? "Fill out this field"
-                : email.match(
+                : !email.match(
                     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
                   )
                 ? "Please enter valid email"
@@ -205,7 +168,7 @@ const Register = () => {
             type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            error={errors.address}
+            error={addressError}
             errorMessage="Fill out this field"
           />
           <div className="plz">
@@ -214,7 +177,7 @@ const Register = () => {
               type="text"
               value={plz}
               onChange={(e) => setPlz(e.target.value)}
-              error={errors.plz}
+              error={plzError}
               errorMessage="Fill out this field"
             />
           </div>
@@ -223,7 +186,7 @@ const Register = () => {
             type="text"
             value={place}
             onChange={(e) => setPlace(e.target.value)}
-            error={errors.place}
+            error={placeError}
             errorMessage="Fill out this field"
           />
           <Input
@@ -231,7 +194,7 @@ const Register = () => {
             type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            error={errors.phone}
+            error={phoneError}
             errorMessage="Fill out this field"
           />
           <Input
@@ -239,7 +202,7 @@ const Register = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
+            error={passwordError}
             errorMessage="Fill out this field"
           />
           <Input
@@ -247,7 +210,7 @@ const Register = () => {
             type="password"
             value={passwordConfirm}
             onChange={(e) => setPasswordConfirm(e.target.value)}
-            error={errors.passwordConfirm}
+            error={passwordConfirmError}
             errorMessage="Fill out this field"
           />
         </div>
