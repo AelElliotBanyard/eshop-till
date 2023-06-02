@@ -14,16 +14,24 @@ const NavigationItem = ({
   if (list) {
     const [open, setOpen] = useState(false);
     return (
-      <div className={"navList " + (open ? "open" : "closed")} onClick={() => setOpen(!open)}>
-  
+      <div
+        className={"navList " + (open ? "open" : "closed")}
+        onClick={() => setOpen(!open)}
+      >
         {" "}
         <div className="navListTitle">
           <p>{title}</p>
-          <AiFillCaretDown className={"navListArrow " + (open ? "open" : "closed")} />
+          <AiFillCaretDown
+            className={"navListArrow " + (open ? "open" : "closed")}
+          />
         </div>
         <div className={"navListItem " + (open ? "open" : "closed")}>
           {subroutes?.map((subroute) => {
-            return <Link href={subroute.path}>{subroute.title}</Link>;
+            return (
+              <Link href={subroute.path} key={subroute.title}>
+                {subroute.title}
+              </Link>
+            );
           })}
         </div>
       </div>
@@ -31,7 +39,9 @@ const NavigationItem = ({
   }
   return (
     <div className="navItem">
-      <Link href={path} className="navTitle">{title}</Link>
+      <Link href={path} className="navTitle">
+        {title}
+      </Link>
     </div>
   );
 };
