@@ -16,10 +16,10 @@
     }
 
     .fullInput > label {
-        @apply flex gap-4;
+        @apply relative flex gap-2;
     }
 
     .fullInput > label > .error {
-        @apply text-red-500 font-bold;
+        @apply absolute right-0 text-red-500 font-bold text-xs;
     }
 }

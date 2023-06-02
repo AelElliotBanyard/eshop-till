@@ -46,10 +46,6 @@
     @apply absolute top-5 left-5;
   }
 
-  .plz {
-    @apply w-2/5;
-  }
-
   .responsePage {
     @apply w-screen min-h-screen bg-main bg-cover bg-fixed flex justify-center items-center;
   }
