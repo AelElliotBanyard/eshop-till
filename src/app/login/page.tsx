@@ -12,6 +12,7 @@ const Login = () => {
   const [errors, setErrors] = useState({
     email: false,
     password: false,
+    account: false,
   })
 
   const login = async () => {
@@ -21,15 +22,22 @@ const Login = () => {
     }else if (password === "") {
         setErrors({...errors, password: true})
     }else {
-        try {
-            const authData = await pb.collection('users').authWithPassword(
-                email,
-                password
-            );
-        }catch(error) {
-            console.log(error)
-            setEmail("")
-            setPassword("")
+        const records = await pb.collection('users').getFullList({
+            filter: `email = "${email}"`, 
+        });
+        if (records.totalItems != 0) {
+            try {
+                const authData = await pb.collection('users').authWithPassword(
+                    email,
+                    password
+                );
+            }catch(error) {
+                console.log(error)
+                setEmail("")
+                setPassword("")
+            }
+        }else {
+            setErrors({...errors, account: true })
         }
     }
   }
