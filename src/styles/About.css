@@ -1,0 +1,21 @@
+@layer components {
+    .about {
+        @apply pt-24 w-screen min-h-screen bg-main bg-cover bg-fixed flex justify-center items-start;
+    }
+
+    .aboutTitle {
+        @apply font-bold text-5xl;
+      }
+
+      .aboutContainer {
+        @apply flex flex-col justify-center items-center w-4/5 bg-black bg-opacity-50 rounded text-white py-5 text-xl backdrop-blur-md gap-10
+      }
+
+      .aboutText {
+        @apply text-center;
+      }
+
+      .br {
+        @apply pt-16
+      }
+}
